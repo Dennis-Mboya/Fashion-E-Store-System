@@ -1,0 +1,162 @@
+/* Reset margins and paddings for all elements, set box-sizing to include padding and border in element's total width/height,
+   and apply a global background color of black */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+/* Set base font size for the HTML document and apply a specific font family */
+html {
+    font-size: 10px;  /* 10px = 1rem, making rem units easier to manage */
+    font-family: "Roboto Cn", sans-serif;
+}
+
+/* Prevent horizontal scrolling (overflow) on the body */
+body {
+    overflow-x: hidden;
+}
+
+/* Style for all anchor links: remove underline and set color to light gray */
+a {
+    text-decoration: none;
+    color: #eee;
+}
+
+/* Style the header to take up the full viewport height with a background image centered and not repeating */
+header {
+    width: 100%;
+    height: 100vh;
+    background: url(bg.jpeg.png) center no-repeat;
+    background-size: cover;  /* Cover the entire header area */
+}
+
+/* Container to center content and set a max-width with auto margins */
+.container {
+    max-width: 120rem;  /* Max width set to 1200px */
+    width: 90%;  /* 90% of the viewport width */
+    margin: 0 auto;  /* Center horizontally */
+}
+
+/* Style the navigation bar: add padding at the top, align items horizontally and space them apart */
+nav {
+    padding-top: 5rem;  /* 50px top padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;  /* Convert text to uppercase */
+    font-size: 1.6rem;  /* Font size set to 16px */
+}
+
+/* Style the brand/logo text: large font size, lighter font weight, and animated slide-in from the left */
+.SILVESTER {
+    font-size: 3rem;  /* 30px font size */
+    font-weight: 300;  /* Light font weight */
+    transform: translateX(-100rem);  /* Start position off-screen to the left */
+    animation: slideIn .5s forwards;  /* Slide-in animation to bring it into view */
+}
+
+/* Style the span element within the brand/logo to have a dark green color */
+.SILVESTER span {
+    color: darkgreen;
+}
+
+/* Style for the unordered list in the nav: display list items inline */
+nav ul {
+    display: flex;
+}
+
+/* Remove list-style and apply animation to each list item, starting off-screen to the right */
+nav ul li {
+    list-style: none;
+    transform: translateX(100rem);  /* Start position off-screen to the right */
+    animation: slideIn .5s forwards;  /* Slide-in animation to bring them into view */
+}
+
+/* Set a delay for the first list item animation */
+nav ul li:nth-child(1) {
+    animation-delay: 0s;
+}
+
+/* Set a delay for the second list item animation */
+nav ul li:nth-child(2) {
+    animation-delay: .5s;
+}
+
+/* Set a delay for the third list item animation */
+nav ul li:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* Set a delay for the fourth list item animation (typo in original code: 1,5s should be 1.5s) */
+nav ul li:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+/* Style for links inside the navigation list items */
+nav ul li a {
+    padding: 1rem 0;  /* Padding above and below the text */
+    margin: 0 3rem;  /* Margin on left and right sides */
+    position: relative;  /* Allows positioning of ::before and ::after pseudo-elements */
+    letter-spacing: 2px;  /* Increases the space between characters */
+}
+
+/* Remove the right margin from the last navigation link */
+nav ul li a:last-child {
+    margin-right: 0;
+}
+
+/* Define styles for the ::before and ::after pseudo-elements of the links */
+nav ul li a::before,
+nav ul li a::after {
+    content: '';  /* Empty content to create lines */
+    position: absolute;  /* Absolute positioning relative to the link */
+    width: 100%;  /* Full width of the link */
+    height: 2px;  /* Height of the lines */
+    background-color: darkgreen;  /* Color of the lines */
+    left: 0;  /* Align to the left edge of the link */
+    transform: scaleX(0);  /* Initially scale the lines down to zero width */
+    transition: all .5s;  /* Smooth transition for all properties over 0.5s */
+}
+
+/* Position the ::before pseudo-element at the top of the link */
+nav ul li a::before {
+    top: 0;
+    transform-origin: left;  /* The transformation will start from the left */
+}
+
+/* Position the ::after pseudo-element at the bottom of the link */
+nav ul li a::after {
+    bottom: 0;
+    transform-origin: right;  /* The transformation will start from the right */
+}
+
+/* On hover, expand the ::before and ::after pseudo-elements to create a line above and below the link */
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+    transform: scaleX(1);  /* Expand the line to full width */
+}
+
+/* Keyframe animation for sliding elements into view */
+@keyframes slideIn {
+    from {}  /* No changes at the start */
+    to {
+        transform: translateX(0);  /* End state: element positioned at its original location */
+    }
+}
+
+/* Change the color of the span element inside .Home to dark green */
+.Home span {
+    color: darkgreen;
+}
+
+/* Change the color of the span element inside .Services to dark green */
+.Services span {
+    color: darkgreen;
+}
+
+/* Change the color of the span element inside .contact to dark green */
+.contact span {
+    color: darkgreen;
+}
